@@ -1,6 +1,7 @@
 package view
 
 import csstype.*
+import kotlinext.js.getOwnPropertyNames
 import react.FC
 import react.Props
 import react.css.css
@@ -8,6 +9,7 @@ import react.dom.html.ReactHTML.table
 import react.dom.html.ReactHTML.tr
 import react.dom.html.ReactHTML.td
 import react.dom.html.ReactHTML.img
+import react.useEffect
 import react.useState
 
 
@@ -21,6 +23,11 @@ val TicTacToeBoard = FC<Props> {
             arrayOf(" ", " ", " "),
         )
     )
+    useEffect {
+        println(currentPlayer)
+        println(TicTacToeGameLogicUtils.getBestMove(board, currentPlayer))
+    }
+
     table {
         css {
             width = 500.px
@@ -57,8 +64,8 @@ val TicTacToeBoard = FC<Props> {
                             onClick = {
                                 if (board[i][j].isBlank()) {
                                     val newBoard = board.copyOf().apply { this@apply[i][j] = currentPlayer }
-                                    currentPlayer = if (currentPlayer == "x") "o" else "x"
                                     board = newBoard
+                                    currentPlayer = if (currentPlayer == "x") "o" else "x"
                                 }
                             }
                         }

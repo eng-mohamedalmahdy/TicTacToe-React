@@ -10,7 +10,6 @@
         <externalSystemTestTasks>
           <externalSystemTestTask>browserTest|:|js</externalSystemTestTask>
         </externalSystemTestTasks>
-        <testOutputPath>$MODULE_DIR$/../../build/js/packages/TicTacToe-test/kotlin/TicTacToe-test.js</testOutputPath>
         <compilerSettings />
         <compilerArguments>
           <flagArguments>
